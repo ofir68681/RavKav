@@ -8,4 +8,4 @@ if __name__ == '__main__':
     # crd1.pay(10)
     # print(crd1)
     # crd1.pay(100000)
-    crd1.menu()
+    #crd1.menu()

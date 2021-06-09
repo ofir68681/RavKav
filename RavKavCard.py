@@ -1,6 +1,7 @@
 import random
 
 
+
 class RavKavCard:
 
     def __init__(self, id_num, profile, money):
@@ -9,7 +10,8 @@ class RavKavCard:
         self.money = money
 
     def __str__(self):
-        return "id: " + str(self.id_num) + " profile: " + self.profile + " money must be funny: " + str(self.money)
+        return f'id: {self.id_num}, profile: {self.profile}, money must be funny: {self.money}'
+
 
     def deposit(self, payment):
         if self.profile == "old":
@@ -28,11 +30,14 @@ class RavKavCard:
     def check_money(self):
         return self.money
 
-    def rand_card(self):
-        self.id_num = random.randint(1, 999999999)
+    @staticmethod
+    def rand_card():
+        id_num = random.randint(1, 999999999)
         profiles = ["young", "student", "old"]
-        self.profile = random.choice(profiles)
-        self.money = random.randint(0, 1000)
+        profile = random.choice(profiles)
+        money = random.randint(0, 1000)
+        return RavKavCard(id_num, profile,money)
+
 
     def menu(self):
         while True:
