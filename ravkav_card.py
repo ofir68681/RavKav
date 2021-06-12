@@ -1,22 +1,21 @@
 import random
-
+from profile import Profile
 
 
 class RavKavCard:
 
-    def __init__(self, id_num, profile, money):
+    def __init__(self, id_num, p, money):
         self.id_num = id_num
-        self.profile = profile
+        self.profile = Profile[p]
         self.money = money
 
     def __str__(self):
-        return f'id: {self.id_num}, profile: {self.profile}, money must be funny: {self.money}'
-
+        return f'id: {self.id_num}, profile: {self.profile.name}, money must be funny: {self.money}'
 
     def deposit(self, payment):
-        if self.profile == "old":
+        if self.profile == profile.old:
             self.money += payment * 1.5
-        elif self.profile in {"young", "student"}:
+        elif self.profile in {profile.young, profile.student}:
             self.money += payment * 1.33
         else:
             print("eat shit")
@@ -36,8 +35,7 @@ class RavKavCard:
         profiles = ["young", "student", "old"]
         profile = random.choice(profiles)
         money = random.randint(0, 1000)
-        return RavKavCard(id_num, profile,money)
-
+        return RavKavCard(id_num, profile, money)
 
     def menu(self):
         while True:
@@ -53,6 +51,3 @@ class RavKavCard:
                 amount = int(input("How much you want to deposit?"))
                 self.deposit(amount)
                 print("You got now:", self.check_money())
-
-
-
