@@ -1,7 +1,7 @@
 from ravkav_card import RavKavCard
 
 if __name__ == '__main__':
-    crd1 = RavKavCard("314962101", "young", 90)
+    crd1 = RavKavCard(314962101, "young", 90)
     print(crd1)
     # crd1.deposit(100)
     # print(crd1)

@@ -4,18 +4,18 @@ from profile import Profile
 
 class RavKavCard:
 
-    def __init__(self, id_num, p, money):
+    def __init__(self, id_num: int, user_profile: str, money: float):
         self.id_num = id_num
-        self.profile = Profile[p]
+        self.profile: Profile = Profile[user_profile]
         self.money = money
 
     def __str__(self):
         return f'id: {self.id_num}, profile: {self.profile.name}, money must be funny: {self.money}'
 
-    def deposit(self, payment):
-        if self.profile == profile.old:
+    def deposit(self, payment: float):
+        if self.profile == Profile.old:
             self.money += payment * 1.5
-        elif self.profile in {profile.young, profile.student}:
+        elif self.profile in {Profile.young, Profile.student}:
             self.money += payment * 1.33
         else:
             print("eat shit")
