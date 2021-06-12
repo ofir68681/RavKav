@@ -1,3 +1,4 @@
+from __future__ import annotations
 import random
 from profile import Profile
 
@@ -12,7 +13,7 @@ class RavKavCard:
     def __str__(self):
         return f'id: {self.id_num}, profile: {self.profile.name}, money must be funny: {self.money}'
 
-    def deposit(self, payment: float):
+    def deposit(self, payment: float) -> None:
         if self.profile == Profile.old:
             self.money += payment * 1.5
         elif self.profile in {Profile.young, Profile.student}:
@@ -20,24 +21,24 @@ class RavKavCard:
         else:
             print("eat shit")
 
-    def pay(self, m):
+    def pay(self, m: float) -> None:
         if self.money >= m:
             self.money -= m
         else:
             print("die")
 
-    def check_money(self):
+    def check_money(self) -> float:
         return self.money
 
     @staticmethod
-    def rand_card():
+    def rand_card() -> RavKavCard:
         id_num = random.randint(1, 999999999)
         profiles = ["young", "student", "old"]
         profile = random.choice(profiles)
         money = random.randint(0, 1000)
         return RavKavCard(id_num, profile, money)
 
-    def menu(self):
+    def menu(self)-> None:
         while True:
             print("Select action: \n 1.Check balance. \n 2.Pay for a ride. \n 3.Deposit.")
             choice = int(input("Enter your selection: "))
