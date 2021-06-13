@@ -1,6 +1,6 @@
 from ravkav_card import RavKavCard
 
-
+# Menu for RavKav users.
 def menu(crd: RavKavCard) -> None:
     while True:
         print("Select action: \n 1.Check balance. \n 2.Pay for a ride. \n 3.Deposit.")
