@@ -1,5 +1,6 @@
 from ravkav_card import RavKavCard
 
+
 # Menu for RavKav users.
 def menu(crd: RavKavCard) -> None:
     while True:

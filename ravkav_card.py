@@ -14,33 +14,32 @@ class RavKavCard:
     def __str__(self):
         return f'id: {self.id_num}, profile: {self.profile.name}, money must be funny: {self.money}'
 
-# Deposition of money to the card.
+    # Deposition of money to the card.
     def deposit(self, payment: float) -> None:
-        if self.profile == Profile.old:
+        if self.profile == Profile.Old:
             self.money += payment * 1.5
-        elif self.profile in {Profile.young, Profile.student}:
+        elif self.profile in {Profile.Young, Profile.Student}:
             self.money += payment * 1.33
         else:
             print("eat shit")
 
-# pay for a ride.
+    # pay for a ride.
     def pay(self, m: float) -> None:
         if self.money >= m:
             self.money -= m
         else:
             print("die")
 
-# check how much money do you have on your card.
+    # check how much money do you have on your card.
     def check_money(self) -> float:
         return self.money
 
-# Returns a random card.
+    # Generates a random card.
     @staticmethod
-    def rand_card() -> RavKavCard:
-        id_num = random.randint(1, 999999999)
-        profiles = ["young", "student", "old"]
-        profile = random.choice(profiles)
-        money = random.randint(0, 1000)
-        return RavKavCard(id_num, profile, money)
-
+    def auto_user():
+        while True:
+            p = random.choice(list(Profile))
+            money = random.randint(0, 200)
+            id_num = random.randint(111111111, 999999999)
+            yield RavKavCard(id_num=id_num, user_profile=p.name, money=money)
 

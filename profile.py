@@ -1,8 +1,9 @@
-from enum import Enum
+from enum import Enum, auto
+import random
 
 
 # Enum class for RavKav profile
 class Profile(Enum):
-    young = 1
-    student = 2
-    old = 3
+    Young = auto()
+    Student = auto()
+    Old = auto()
